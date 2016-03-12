@@ -26,12 +26,6 @@
                                     <action selector="recordAudio:" destination="BYZ-38-t0r" eventType="touchUpInside" id="hJ5-eh-3HH"/>
                                 </connections>
                             </button>
-                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="recording" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iCn-sf-pWq">
-                                <rect key="frame" x="-42" y="-21" width="42" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.035909999981073359" green="0.51055182488117867" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hjB-i1-qAA">
                                 <rect key="frame" x="-23" y="-15" width="46" height="30"/>
                                 <state key="normal" image="stop"/>
@@ -39,6 +33,12 @@
                                     <action selector="stopRecording:" destination="BYZ-38-t0r" eventType="touchUpInside" id="IN0-QO-JWH"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iCn-sf-pWq">
+                                <rect key="frame" x="-42" y="-21" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" red="0.016497805301186878" green="0.3164717126813722" blue="0.62722922120418856" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -52,8 +52,8 @@
                         <variation key="default">
                             <mask key="subviews">
                                 <exclude reference="EFf-kk-HOH"/>
-                                <exclude reference="iCn-sf-pWq"/>
                                 <exclude reference="hjB-i1-qAA"/>
+                                <exclude reference="iCn-sf-pWq"/>
                             </mask>
                             <mask key="constraints">
                                 <exclude reference="dFf-aB-Zsm"/>
@@ -67,8 +67,8 @@
                         <variation key="widthClass=compact">
                             <mask key="subviews">
                                 <include reference="EFf-kk-HOH"/>
-                                <include reference="iCn-sf-pWq"/>
                                 <include reference="hjB-i1-qAA"/>
+                                <include reference="iCn-sf-pWq"/>
                             </mask>
                             <mask key="constraints">
                                 <include reference="dFf-aB-Zsm"/>
@@ -106,7 +106,7 @@
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KJS-lQ-NsY">
                                 <rect key="frame" x="-23" y="-15" width="46" height="30"/>
-                                <state key="normal" image="slow"/>
+                                <state key="normal" image="slug"/>
                                 <connections>
                                     <action selector="playSlowSound:" destination="ZSG-8e-lBW" eventType="touchUpInside" id="BYV-vv-OLu"/>
                                 </connections>
@@ -116,13 +116,6 @@
                                 <state key="normal" image="fast"/>
                                 <connections>
                                     <action selector="playFastSound:" destination="ZSG-8e-lBW" eventType="touchUpInside" id="a1z-ZO-SoQ"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ujG-Z4-Ggl">
-                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
-                                <state key="normal" image="stop"/>
-                                <connections>
-                                    <action selector="stopSound:" destination="ZSG-8e-lBW" eventType="touchUpInside" id="ccR-6L-QzB"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E9c-fR-MyZ">
@@ -137,6 +130,13 @@
                                 <state key="normal" image="vader"/>
                                 <connections>
                                     <action selector="playDarthvaderSound:" destination="ZSG-8e-lBW" eventType="touchUpInside" id="n0V-W6-Xe0"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ujG-Z4-Ggl">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <state key="normal" image="stop"/>
+                                <connections>
+                                    <action selector="stopSound:" destination="ZSG-8e-lBW" eventType="touchUpInside" id="ccR-6L-QzB"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -157,42 +157,42 @@
                             <mask key="subviews">
                                 <exclude reference="KJS-lQ-NsY"/>
                                 <exclude reference="8oV-fu-gh9"/>
-                                <exclude reference="ujG-Z4-Ggl"/>
                                 <exclude reference="E9c-fR-MyZ"/>
                                 <exclude reference="jJL-L6-UC2"/>
+                                <exclude reference="ujG-Z4-Ggl"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="b04-qN-Kuh"/>
-                                <exclude reference="hWB-jy-Yel"/>
+                                <exclude reference="GgW-XD-04N"/>
                                 <exclude reference="Z9Y-jE-A4C"/>
                                 <exclude reference="nu4-Ul-22t"/>
                                 <exclude reference="gBD-ZV-Whl"/>
                                 <exclude reference="iLR-bh-iZz"/>
+                                <exclude reference="b04-qN-Kuh"/>
+                                <exclude reference="hWB-jy-Yel"/>
                                 <exclude reference="6Ez-ad-3YF"/>
                                 <exclude reference="mtn-z2-GQi"/>
                                 <exclude reference="Nyk-QQ-Syu"/>
-                                <exclude reference="GgW-XD-04N"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
                             <mask key="subviews">
                                 <include reference="KJS-lQ-NsY"/>
                                 <include reference="8oV-fu-gh9"/>
-                                <include reference="ujG-Z4-Ggl"/>
                                 <include reference="E9c-fR-MyZ"/>
                                 <include reference="jJL-L6-UC2"/>
+                                <include reference="ujG-Z4-Ggl"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="b04-qN-Kuh"/>
-                                <include reference="hWB-jy-Yel"/>
+                                <include reference="GgW-XD-04N"/>
                                 <include reference="Z9Y-jE-A4C"/>
                                 <include reference="nu4-Ul-22t"/>
                                 <include reference="gBD-ZV-Whl"/>
                                 <include reference="iLR-bh-iZz"/>
+                                <include reference="b04-qN-Kuh"/>
+                                <include reference="hWB-jy-Yel"/>
                                 <include reference="6Ez-ad-3YF"/>
                                 <include reference="mtn-z2-GQi"/>
                                 <include reference="Nyk-QQ-Syu"/>
-                                <include reference="GgW-XD-04N"/>
                             </mask>
                         </variation>
                     </view>
@@ -224,7 +224,7 @@
         <image name="chipmunk" width="100" height="100"/>
         <image name="fast" width="100" height="100"/>
         <image name="microphone" width="100" height="100"/>
-        <image name="slow" width="100" height="100"/>
+        <image name="slug" width="100" height="100"/>
         <image name="stop" width="50" height="50"/>
         <image name="vader" width="100" height="100"/>
     </resources>

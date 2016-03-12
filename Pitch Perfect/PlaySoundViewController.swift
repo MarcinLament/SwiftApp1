@@ -20,9 +20,9 @@ class PlaySoundViewController: UIViewController {
         super.viewDidLoad()
         
         audioEngine = AVAudioEngine();
-        audioFile = try! AVAudioFile(forReading: receivedAudio.filePathUrl);
+        audioFile = try! AVAudioFile(forReading: receivedAudio.url);
 
-        audioPlayer = try! AVAudioPlayer.init(contentsOfURL: receivedAudio.filePathUrl);
+        audioPlayer = try! AVAudioPlayer.init(contentsOfURL: receivedAudio.url);
         audioPlayer.enableRate = true;
     }
 
@@ -47,9 +47,7 @@ class PlaySoundViewController: UIViewController {
     }
     
     func playSoundWithVariablePitch(pitch: Float){
-        audioPlayer.stop();
-        audioEngine.stop();
-        audioEngine.reset();
+        stopPlayer();
         
         let audioPlayerNode = AVAudioPlayerNode();
         audioEngine.attachNode(audioPlayerNode);
@@ -68,13 +66,20 @@ class PlaySoundViewController: UIViewController {
     }
     
     func playSoundAtRate(speed : Float){
-        audioPlayer.stop();
+        stopPlayer();
+        
         audioPlayer.rate = speed;
         audioPlayer.currentTime = 0;
         audioPlayer.play();
     }
 
     @IBAction func stopSound(sender: AnyObject) {
+        stopPlayer();
+    }
+    
+    func stopPlayer(){
         audioPlayer.stop();
+        audioEngine.stop();
+        audioEngine.reset();
     }
 }

@@ -24,24 +24,20 @@ class VoiceRecorderViewController: UIViewController, AVAudioRecorderDelegate {
     
     override func viewWillAppear(animated: Bool) {
         stopButton.hidden = true;
+        recordingInProgress.text = "Tap to Record";
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
 
     @IBAction func recordAudio(sender: UIButton) {
-        recordingInProgress.hidden = false;
+        recordingInProgress.text = "Recording in progress";
         stopButton.hidden = false;
         micButton.enabled = false;
         
         let dirPath = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] as String
         
-//        let currentDateTime = NSDate()
-//        let formatter = NSDateFormatter()
-//        formatter.dateFormat = "ddMMyyyy-HHmmss"
-//        let recordingName = formatter.stringFromDate(currentDateTime)+".wav"
         let recordingName = "MyAudio.wav";
         let pathArray = [dirPath, recordingName]
         let filePath = NSURL.fileURLWithPathComponents(pathArray)
@@ -58,7 +54,7 @@ class VoiceRecorderViewController: UIViewController, AVAudioRecorderDelegate {
     }
     
     @IBAction func stopRecording(sender: AnyObject) {
-        recordingInProgress.hidden = true;
+        recordingInProgress.text = "Tap to Record";
         stopButton.hidden = true;
         micButton.enabled = true;
         
@@ -70,10 +66,7 @@ class VoiceRecorderViewController: UIViewController, AVAudioRecorderDelegate {
     func audioRecorderDidFinishRecording(recorder: AVAudioRecorder, successfully flag: Bool) {
         
         if (flag){
-            recordedAudio = RecordedAudio();
-            recordedAudio.filePathUrl = recorder.url;
-            recordedAudio.title = recorder.url.lastPathComponent;
-        
+            recordedAudio = RecordedAudio(url: recorder.url, title: recorder.url.lastPathComponent!);
             performSegueWithIdentifier("stopRecording", sender: recordedAudio);
         }
     }
